@@ -102,8 +102,9 @@ app.delete('/removebook/:id', async (req, res) => {
 
 
 const dburl = 'mongodb://localhost:27017/books'
-// const dburl=`mongodb+srv://${process.env.USERNAME.toLowerCase()}:${process.env.PASSWORD}@cluster0.cdnewxy.mongodb.net/books`
+// const dburl=`mongodb+srv://${process.env.MYUSERNAME}:${process.env.PASSWORD}@cluster0.yqebdfc.mongodb.net/?retryWrites=true&w=majority`;
 
+console.log(dburl)
 mongoose.connect(dburl).then(() => {
     console.log('Connection established');
 })
