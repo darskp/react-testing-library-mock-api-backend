@@ -40,7 +40,7 @@ app.post('/addbook', async (req, res) => {
 
 app.get('/getbooks', async (req, res) => {
     try {
-        const books = await Book.find()
+        const books = await Book.find().sort({id:-1})
         res.json(books)
     } catch (error) {
         console.log(error);
@@ -104,7 +104,6 @@ app.delete('/removebook/:id', async (req, res) => {
 const dburl = 'mongodb://localhost:27017/books'
 // const dburl=`mongodb+srv://${process.env.MYUSERNAME}:${process.env.PASSWORD}@cluster0.yqebdfc.mongodb.net/?retryWrites=true&w=majority`;
 
-console.log(dburl)
 mongoose.connect(dburl).then(() => {
     console.log('Connection established');
 })
